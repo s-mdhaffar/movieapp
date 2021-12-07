@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import MovieList from './Components/MovieList';
+import { Movies } from './MovieData';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AddModal from './Components/AddModal';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App () {
+	const [ movies, setMovies ] = useState(Movies);
+	return (
+		<div className="App">
+			<header className="App-header">
+				<h1>Movie App</h1>
+				<MovieList movies={movies} />
+				<AddModal />
+			</header>
+		</div>
+	);
 }
 
 export default App;
