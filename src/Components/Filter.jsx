@@ -1,6 +1,6 @@
 import StarsRating from './StarsRating'
 
-const Filter = ({text,handleChange,rating,handleRating,date,handleDate}) => {
+const Filter = ({text,handleChange,rating,handleRating}) => {
 
 
     return (

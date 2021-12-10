@@ -14,11 +14,6 @@ function App () {
 		setText(e.target.value);
 	};
 
-	const [ date, setDate ] = useState('');
-	const handleDate = (e) => {
-		setDate(e.target.value);
-	};
-
 	const addMovie = (newMovie) => {
 		setMovies([ ...movies, newMovie ]);
 	};
@@ -37,14 +32,7 @@ function App () {
 		<div className="App">
 			<header className="App-header">
 				<h1>Movie App</h1>
-				<Filter
-					date={date}
-					handleDate={handleDate}
-					text={text}
-					handleChange={handleChange}
-					rating={rating}
-					handleRating={handleRating}
-				/>
+				<Filter text={text} handleChange={handleChange} rating={rating} handleRating={handleRating} />
 				<br />
 				<MovieList
 					handleEdit={handleEdit}
