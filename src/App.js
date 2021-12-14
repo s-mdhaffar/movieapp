@@ -33,19 +33,37 @@ function App () {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<h1>Movie App</h1>
 				<BrowserRouter>
-					<Filter text={text} handleChange={handleChange} rating={rating} handleRating={handleRating} />
-					<br />
-					<MovieList
-						handleEdit={handleEdit}
-						movies={movies.filter(
-							(el) =>
-								(el.name.toLowerCase().includes(text.toLowerCase()) || el.year.includes(text)) &&
-								el.rating >= rating
+					<h1>Movie App</h1>
+					<Route
+						path="/"
+						exact
+						render={(props) => (
+							<Filter
+								text={text}
+								handleChange={handleChange}
+								rating={rating}
+								handleRating={handleRating}
+							/>
 						)}
 					/>
-					<AddModal add={addMovie} />
+					<br />
+					<Route
+						path="/"
+						exact
+						render={(props) => (
+							<MovieList
+								handleEdit={handleEdit}
+								movies={movies.filter(
+									(el) =>
+										(el.name.toLowerCase().includes(text.toLowerCase()) ||
+											el.year.includes(text)) &&
+										el.rating >= rating
+								)}
+							/>
+						)}
+					/>
+					<Route path="/" exact render={(props) => <AddModal add={addMovie} />} />
 					<Route path="/:id" render={(props) => <Trailer movies={movies} {...props} />} />
 				</BrowserRouter>
 			</header>

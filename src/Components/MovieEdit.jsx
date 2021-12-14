@@ -9,6 +9,8 @@ const MovieEdit = ({movie,handleEdit}) => {
     const [image, setImage] = useState(movie.image);
     const [rating, setRating] = useState(movie.rating);
     const [year, setYear] = useState(movie.year)
+    const [trailer, setTrailer] = useState(movie.trailer);
+    const [description, setDescription] = useState(movie.description);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -23,7 +25,9 @@ const MovieEdit = ({movie,handleEdit}) => {
         name,
         rating,
         image,
-        year
+        year,
+        trailer,
+        description
       };
       handleEdit(editMovie)
       handleClose()
@@ -78,6 +82,30 @@ const MovieEdit = ({movie,handleEdit}) => {
                   type="Date"
                   value={year}
                   onChange={(e)=>setYear(e.target.value)}
+                  />
+                  </InputGroup>
+                </div>
+                <div>
+                  <InputGroup className="mb-3">
+                  <InputGroup.Text id="inputGroup-sizing-default" type="Date">Trailer</InputGroup.Text>
+                  <FormControl
+                  aria-label="Default"
+                  aria-describedby="inputGroup-sizing-default"
+                  type="url"
+                  value={trailer}
+                  onChange={(e)=>setTrailer(e.target.value)}
+                  />
+                  </InputGroup>
+                </div>
+                <div>
+                  <InputGroup className="mb-3">
+                  <InputGroup.Text id="inputGroup-sizing-default" type="Date">Description</InputGroup.Text>
+                  <FormControl
+                  aria-label="Default"
+                  aria-describedby="inputGroup-sizing-default"
+                  type="url"
+                  value={description}
+                  onChange={(e)=>setDescription(e.target.value)}
                   />
                   </InputGroup>
                 </div>

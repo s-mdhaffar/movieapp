@@ -8,7 +8,9 @@ const AddModal = ({add}) => {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [rating, setRating] = useState(1);
-    const [year, setYear] = useState("")
+    const [year, setYear] = useState("");
+    const [trailer, setTrailer] = useState("")
+    const [description, setDescription] = useState("")
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -23,7 +25,9 @@ const AddModal = ({add}) => {
         name,
         rating,
         image,
-        year
+        year,
+        trailer,
+        description
       };
       add(newMovie)
       handleClose()
@@ -78,6 +82,30 @@ const AddModal = ({add}) => {
                   type="Date"
                   value={year}
                   onChange={(e)=>setYear(e.target.value)}
+                  />
+                  </InputGroup>
+                </div>
+                <div>
+                  <InputGroup className="mb-3">
+                  <InputGroup.Text id="inputGroup-sizing-default" type="Date">Trailer</InputGroup.Text>
+                  <FormControl
+                  aria-label="Default"
+                  aria-describedby="inputGroup-sizing-default"
+                  type="url"
+                  value={trailer}
+                  onChange={(e)=>setTrailer(e.target.value)}
+                  />
+                  </InputGroup>
+                </div>
+                <div>
+                  <InputGroup className="mb-3">
+                  <InputGroup.Text id="inputGroup-sizing-default" type="Date">Description</InputGroup.Text>
+                  <FormControl
+                  aria-label="Default"
+                  aria-describedby="inputGroup-sizing-default"
+                  type="url"
+                  value={description}
+                  onChange={(e)=>setDescription(e.target.value)}
                   />
                   </InputGroup>
                 </div>
