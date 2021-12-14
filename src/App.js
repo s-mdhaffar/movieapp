@@ -5,6 +5,8 @@ import { Movies } from './MovieData';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddModal from './Components/AddModal';
 import Filter from './Components/Filter';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Trailer from './Components/Trailer';
 
 function App () {
 	const [ movies, setMovies ] = useState(Movies);
@@ -32,17 +34,20 @@ function App () {
 		<div className="App">
 			<header className="App-header">
 				<h1>Movie App</h1>
-				<Filter text={text} handleChange={handleChange} rating={rating} handleRating={handleRating} />
-				<br />
-				<MovieList
-					handleEdit={handleEdit}
-					movies={movies.filter(
-						(el) =>
-							(el.name.toLowerCase().includes(text.toLowerCase()) || el.year.includes(text)) &&
-							el.rating >= rating
-					)}
-				/>
-				<AddModal add={addMovie} />
+				<BrowserRouter>
+					<Filter text={text} handleChange={handleChange} rating={rating} handleRating={handleRating} />
+					<br />
+					<MovieList
+						handleEdit={handleEdit}
+						movies={movies.filter(
+							(el) =>
+								(el.name.toLowerCase().includes(text.toLowerCase()) || el.year.includes(text)) &&
+								el.rating >= rating
+						)}
+					/>
+					<AddModal add={addMovie} />
+					<Route path="/:id" render={(props) => <Trailer movies={movies} {...props} />} />
+				</BrowserRouter>
 			</header>
 		</div>
 	);

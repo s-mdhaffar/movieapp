@@ -2,6 +2,8 @@ import React from 'react'
 import { Card } from 'react-bootstrap';
 import MovieEdit from './MovieEdit';
 import StarsRating from './StarsRating';
+import { Link } from 'react-router-dom';
+
 
 const MovieCard = ({movie,handleEdit}) => {
     return (
@@ -15,6 +17,7 @@ const MovieCard = ({movie,handleEdit}) => {
 					<StarsRating rating={movie.rating} />
 				</Card.Body>
 				<MovieEdit handleEdit={handleEdit} movie={movie}/>
+				<Link to={`/${movie.id} `}><button>Trailer</button></Link>
 			</Card>
         </div>
     )
