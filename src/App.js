@@ -34,7 +34,7 @@ function App () {
 		<div className="App">
 			<header className="App-header">
 				<BrowserRouter>
-					<h1>Movie App</h1>
+					<Route path="/" exact render={() => <h1>Movie App</h1>} />
 					<Route
 						path="/"
 						exact
